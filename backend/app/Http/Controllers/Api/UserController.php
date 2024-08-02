@@ -9,13 +9,13 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $users = User::all();
-
+        $users = User::query();
+        $limit = $request->get('limit', 5);
         return response()->json([
             'success' => true,
-            'data'    => $users
+            'data'    => $users->paginate($limit)
         ], 200);
     }
 }

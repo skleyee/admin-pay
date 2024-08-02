@@ -24,7 +24,7 @@ class ConcreteUserService implements UserService
 
     public function login(array $userData)
     {
-        $user = User::where('email', $userData['email'])->first();
+        $user = User::where('login', $userData['login'])->first();
         if (!Hash::check($userData['password'], $user->password)) {
             throw new \Exception('Password mismatch');
         }

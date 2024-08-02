@@ -23,23 +23,15 @@ class CreatePaymentRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'login'    => ['required', 'exists:users,login'],
             'details'  => ['required', 'string', 'min:13', 'max:19'],
             'amount'   => ['required', 'numeric', 'min:0'],
             'currency' => ['required', 'string', 'size:3'],
-            'status'   => ['required', function($attribute, $value, $fail) {
-                if (!in_array($value, PaymentStatus::getValues())) {
-                    $fail('Такого статуса не существует');
-                }
-            }]
         ];
     }
 
     public function messages()
     {
         return [
-            'login.required' => 'Поле login обязательно',
-            'login.exists'   => 'Не существует пользователя с таким логином',
             'details.required' => 'Поле details обязательно',
             'details.string' => 'Поле details должно быть строкой',
             'details.min' => 'Минимум 13 символов',
@@ -50,7 +42,6 @@ class CreatePaymentRequest extends FormRequest
             'currency.required' => 'Поле currency обязательно',
             'currency.string' => 'Поле currency должно быть строкой',
             'currency.size' => 'Поле должно быть в формате ISO - содержать 3 символа',
-            'status.required' => 'Поле status обязательно',
         ];
     }
 }

@@ -16,12 +16,11 @@ class VerifyApiXSign
      */
     public function handle(Request $request, Closure $next): Response
     {
-
         $apiKey = config('app.api.key');
         $secret = config('app.api.secret');
-        $data = $request->all();
+        $data = $request->post();
         $apiSign = $request->header('X-Sign');
-
+        logger($apiSign);
         ksort($data);
 
         $data['k'] = $apiKey;
