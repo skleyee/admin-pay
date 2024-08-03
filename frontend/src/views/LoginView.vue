@@ -67,7 +67,6 @@ export default {
       return valid;
     },
     signIn() {
-      console.log(322);
       if (!this.validate() || this.authToken) {
         return;
       }
@@ -77,7 +76,6 @@ export default {
         'password': this.password
       })
         .then((response) => {
-          console.log(response.data);
           if (response.data.success) {
             const token = response.data.token;
             this.saveAuthToken(token);

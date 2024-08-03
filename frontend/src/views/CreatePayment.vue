@@ -58,10 +58,6 @@ export default {
   },
   methods: {
     createPayment() {
-      console.log(this.details);
-      console.log(this.amount);
-      console.log(this.currency);
-
       this.validateDetails();
       this.validateAmount();
 
@@ -84,7 +80,6 @@ export default {
     },
     validateDetails() {
       const detailsNumber = Number(this.details);
-      console.log(detailsNumber.length);
       if (isNaN(detailsNumber) || detailsNumber.toString().length < 13 || detailsNumber.toString().length > 19) {
         this.detailsError = 'Details must be a number with length between 13 and 19.';
       } else {

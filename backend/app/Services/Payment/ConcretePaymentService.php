@@ -9,7 +9,6 @@ use Illuminate\Support\Facades\DB;
 
 class ConcretePaymentService implements PaymentService
 {
-
     public function createPayment(User $user, array $paymentData): Payment
     {
         try {

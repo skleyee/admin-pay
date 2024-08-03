@@ -13,8 +13,7 @@ class AuthController extends Controller
 {
     public function __construct(
         private readonly UserService $concreteUserService
-    )
-    {
+    ) {
     }
 
     public function register(RegisterRequest $request): JsonResponse

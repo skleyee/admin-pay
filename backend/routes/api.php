@@ -8,8 +8,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->group(function () {
     Route::group(['prefix' => 'users'], function () {
-            Route::get('/', [UserController::class, 'index']);
-        });
+        Route::get('/', [UserController::class, 'index']);
+    });
     Route::middleware(VerifyApiXSign::class)->group(function () {
         Route::get('/payments', [PaymentController::class, 'index']);
         Route::post('/payments', [PaymentController::class, 'store']);

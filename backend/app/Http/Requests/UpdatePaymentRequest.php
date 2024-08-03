@@ -24,7 +24,7 @@ class UpdatePaymentRequest extends FormRequest
     {
         return [
             'id' => ['required', 'exists:payments,id'],
-            'status' => ['required', function($attribute, $value, $fail) {
+            'status' => ['required', function ($attribute, $value, $fail) {
                 if (!in_array($value, PaymentStatus::getValues())) {
                     $fail('Такого статуса не существует');
                 }

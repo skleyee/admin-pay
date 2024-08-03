@@ -6,13 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\CreatePaymentRequest;
 use App\Http\Requests\UpdatePaymentRequest;
 use App\Models\Payment;
-use App\Models\User;
 use App\Services\Payment\PaymentService;
 use Illuminate\Http\Request;
 
 class PaymentController extends Controller
 {
-
     public function index(Request $request)
     {
         $limit = $request->get('limit', 5);

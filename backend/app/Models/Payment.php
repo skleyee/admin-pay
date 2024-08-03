@@ -22,12 +22,10 @@ class Payment extends Model
     public function scopeSearch(Builder $query, $data): Builder
     {
         if ($details = $data['details']) {
-            logger(1);
             $query->where('payload', 'LIKE', '%' . $details . '%');
         }
         if ($id = $data['id']) {
-            logger(5, [$id]);
-            $query->where('id',  $id);
+            $query->where('id', $id);
         }
 
         return $query;

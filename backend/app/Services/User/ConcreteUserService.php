@@ -7,7 +7,6 @@ use Illuminate\Support\Facades\Hash;
 
 class ConcreteUserService implements UserService
 {
-
     public function register(array $userData)
     {
         try {
