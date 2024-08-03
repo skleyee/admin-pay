@@ -49,6 +49,7 @@
         class="mt-3 btn btn-primary"
         @click.prevent="register"
     >Submit</button>
+    <div v-if="errorMessage" class="text-danger mt-3">{{ errorMessage }}</div>
   </form>
 </template>
 
@@ -67,7 +68,8 @@ export default {
       login: "",
       email: "",
       password: "",
-      errors: {}
+      errors: {},
+      errorMessage: ""
     }
   },
 
@@ -75,6 +77,7 @@ export default {
     ...mapActions(['saveAuthToken']),
     validate() {
       this.errors = {};
+      this.errorMessage = "";
       let valid = true;
 
       if (!this.name) {
@@ -128,9 +131,9 @@ export default {
               router.push({ name: "users" });
             }
           })
-          .catch(function (error) {
-            console.error(error);
-            alert(error)
+          .catch((error) => {
+            this.errorMessage = error.response.data.message || "An error occurred during sign-in.";
+            console.log(error.response);
           });
     }
   },
