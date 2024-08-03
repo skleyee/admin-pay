@@ -16,7 +16,7 @@ class PaymentController extends Controller
         $limit = $request->get('limit', 5);
         $filters = $request->query();
         $payments = Payment::query()->with('user')->search(data: $filters);
-        if ($login = $filters['login']) {
+        if ($filters && $login = $filters['login']) {
             $payments->whereHas('user', function ($query) use ($login) {
                 $query->where('login', 'LIKE', '%' . $login . '%');
             });

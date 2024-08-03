@@ -11,13 +11,13 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/', [UserController::class, 'index']);
     });
     Route::middleware(VerifyApiXSign::class)->group(function () {
-        Route::get('/payments', [PaymentController::class, 'index']);
+
         Route::post('/payments', [PaymentController::class, 'store']);
         Route::put('/payments', [PaymentController::class, 'update']);
     });
 
 });
-
+Route::get('/payments', [PaymentController::class, 'index']);
 Route::post('/sign-up', [AuthController::class, 'register']);
 Route::post('/sign-in', [AuthController::class, 'login']);
 Route::post('/logout', [AuthController::class, 'logout']);
