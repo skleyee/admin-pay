@@ -62,7 +62,7 @@ export default {
       this.validateAmount();
 
       if (!this.detailsError && !this.amountError) {
-        apiSign.post("http://localhost:8000/api/payments", {
+        apiSign.post("api/payments", {
           'details': this.details,
           'amount': this.amount,
           'currency': this.currency,

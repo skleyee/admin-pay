@@ -114,7 +114,7 @@ export default {
         return;
       }
 
-      api.post("http://localhost:8000/api/sign-up", {
+      api.post("api/sign-up", {
             'name': this.name,
             'login': this.login,
             'email': this.email,
