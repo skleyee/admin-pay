@@ -71,7 +71,7 @@ export default {
         return;
       }
 
-      api.post("http://localhost:8000/api/sign-in", {
+      api.post("api/sign-in", {
         'login': this.login,
         'password': this.password
       })

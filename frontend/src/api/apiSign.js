@@ -3,7 +3,7 @@ import store from '@/store';
 import CryptoJS from 'crypto-js';
 
 const apiSign = axios.create({
-    baseURL: 'http://localhost:8000/api',
+    baseURL: 'api',
 });
 
 const apiKey = "apikey";

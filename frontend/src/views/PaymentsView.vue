@@ -112,7 +112,7 @@ export default {
   },
   methods: {
     fetchPayments(page = 1) {
-      apiSign.get(`http://localhost:8000/api/payments?page=${page}`, {
+      apiSign.get(`api/payments?page=${page}`, {
         params: {
           details: this.detailsSearch,
           id: this.idSearch,
@@ -138,7 +138,7 @@ export default {
       this.updatePaymentStatus(id, newStatus);
     },
     updatePaymentStatus(id, newStatus) {
-      apiSign.put("http://localhost:8000/api/payments", {
+      apiSign.put("api/payments", {
         'id': id,
         'status': newStatus,
       })
