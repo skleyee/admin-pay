@@ -51,7 +51,7 @@ export default {
   },
   methods: {
     fetchUsers(page = 1) {
-      api.get(`api/users?page=${page}`)
+      api.get(`users?page=${page}`)
           .then((response) => {
             if (response.data.success) {
               this.users = response.data.data.data;

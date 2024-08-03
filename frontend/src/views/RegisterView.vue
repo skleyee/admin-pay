@@ -114,7 +114,7 @@ export default {
         return;
       }
 
-      api.post("api/sign-up", {
+      api.post("sign-up", {
             'name': this.name,
             'login': this.login,
             'email': this.email,
