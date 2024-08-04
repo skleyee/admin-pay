@@ -17,9 +17,17 @@ export default createStore({
   },
   actions: {
     saveAuthToken({ commit }, token) {
+      localStorage.setItem('authToken', token);
       commit('setAuthToken', token);
     },
+    loadToken({ commit }) {
+      const token = localStorage.getItem('authToken');
+      if (token) {
+        commit('setAuthToken', token);
+      }
+    },
     removeAuthToken({ commit }) {
+      localStorage.removeItem('authToken');
       commit('clearAuthToken');
     },
   },
